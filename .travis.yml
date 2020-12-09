@@ -1,7 +1,6 @@
 language: Java
 
 notifications:
-  irc:
     template:
       - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
       - "Change view : %{compare_url}"
