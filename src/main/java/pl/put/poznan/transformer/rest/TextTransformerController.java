@@ -17,7 +17,7 @@ public class TextTransformerController {
     public String get(@PathVariable String text,
                               @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
 
-        // log the parameters
+
         logger.debug(text);
         logger.debug(Arrays.toString(transforms));
 
