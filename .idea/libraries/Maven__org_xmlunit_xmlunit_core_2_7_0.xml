@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/xmlunit/xmlunit-core/2.7.0/xmlunit-core-2.7.0.jar!/" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/xmlunit/xmlunit-core/2.7.0/xmlunit-core-2.7.0-sources.jar!/" />
     </SOURCES>

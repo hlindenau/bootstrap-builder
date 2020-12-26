@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.2/jackson-module-parameter-names-2.11.2.jar!/" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.2/jackson-module-parameter-names-2.11.2-sources.jar!/" />
     </SOURCES>
