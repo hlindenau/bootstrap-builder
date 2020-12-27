@@ -22,8 +22,8 @@ public class BootstrapBuilderController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        BootstrapBuilder transformer = new BootstrapBuilder(transforms);
-        return transformer.transform(text);
+        BootstrapBuilder transformer = new BootstrapBuilder();
+        return "";
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
@@ -35,8 +35,8 @@ public class BootstrapBuilderController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        BootstrapBuilder transformer = new BootstrapBuilder(transforms);
-        return transformer.transform(text);
+        BootstrapBuilder transformer = new BootstrapBuilder();
+        return "";
     }
 
 
