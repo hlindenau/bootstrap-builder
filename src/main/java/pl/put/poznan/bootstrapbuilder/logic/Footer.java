@@ -1,13 +1,24 @@
 package pl.put.poznan.bootstrapbuilder.logic;
 
 public class Footer {
-    private boolean fixed;
+    private boolean addFooter=false;
 
-    public boolean getFixed(){
-        return fixed;
+
+    public Footer(){
+    };
+
+
+    private String buildFooter(){
+        String codeHtml="<footer></footer>";
+        return codeHtml;
     }
 
-    public void setFixed(boolean fixed){
-        this.fixed = fixed;
+
+    public boolean isAddFooter() {
+        return addFooter;
+    }
+
+    public void setAddFooter(boolean addFooter) {
+        this.addFooter = addFooter;
     }
 }

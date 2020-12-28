@@ -8,9 +8,17 @@ public class BootstrapBuilder {
 
     static Logger LOGGER = LoggerFactory.getLogger(BootstrapBuilder.class);
     private String jsonContent;
-    private BottstrapInfo bootstrapinfo;
+    private Header header;
     private String WebpageName;
 
+
+    public Header getHeader() {
+        return header;
+    }
+
+    public void setHeader(Header header) {
+        this.header = header;
+    }
 
     public void setWebpageName(String webpageName) {
         WebpageName = webpageName;
@@ -20,12 +28,14 @@ public class BootstrapBuilder {
         return WebpageName;
     }
 
+
     /**
      * W TEJ KLASIE DAŁBYM FORMULARZ DO ZAZNACZENIA CO SIE CHCE MIEC NA SWOIM SZKIELECIE STRONY
      *
      *
      * I ZWRACA ON KOD HTML W POSTACI STRINGA
      */
+    /*
     public String getBodyContent() {
         String result = "";
 
@@ -58,5 +68,5 @@ public class BootstrapBuilder {
         }
         return "";
     }
-
+*/
 }
