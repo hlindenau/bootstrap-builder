@@ -30,7 +30,7 @@ public class Tag {
     }
 
     public static String buildMeta(JSONArray tags) throws JSONException {
-        String meta="";
+        String meta="<meta ";
 
 
         for (int i=0 ;i<tags.length();i++){
@@ -39,24 +39,16 @@ public class Tag {
 
             while (keys.hasNext()) {
                 String key = keys.next();
-                System.out.println("Key :" + key + "  Value :" + json.get(key));
+                meta+=(key +"=\""+ json.get(key)+"\" ");
+               // System.out.println("Key :" + key + "  Value :" + json.get(key));
             }
+            meta+=">";
         }
+        System.out.println(meta);
 
 
-        Map<String, String> values = new HashMap<String, String>();
-        values.put("content",content);
-        values.put("name",name);
-
-
-
-        StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
-        String codeHTML = sub.replace("<meta name=%(name) content=%(content)>");
-
-        return codeHTML;
+        return meta;
     }
-
-
 
 
     public String getName() {
