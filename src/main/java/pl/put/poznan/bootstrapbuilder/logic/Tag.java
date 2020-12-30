@@ -23,26 +23,25 @@ public class Tag {
     public static void main(String[] args) throws JSONException {
         JSONArray jsonArray = new JSONArray("[{\"a\":1},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
 
-
         //System.out.println(jsonArray);
         buildMeta(jsonArray);
-
     }
 
     public static String buildMeta(JSONArray tags) throws JSONException {
-        String meta="<meta ";
+        String meta="";
 
 
         for (int i=0 ;i<tags.length();i++){
+            meta+="<meta ";
             JSONObject json = tags.getJSONObject(i);
             Iterator<String> keys = json.keys();
 
             while (keys.hasNext()) {
                 String key = keys.next();
-                meta+=(key +"=\""+ json.get(key)+"\" ");
+                meta+=(key +"=\""+ json.get(key)+"\"");
                // System.out.println("Key :" + key + "  Value :" + json.get(key));
             }
-            meta+=">";
+            meta+=">\n";
         }
         System.out.println(meta);
 
