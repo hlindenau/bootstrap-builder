@@ -8,9 +8,9 @@ import java.util.Map;
 public class Header {
     private boolean addHeader=false;
     private static boolean fixed=false;
-    private boolean nav;
+//    private boolean nav;
 
-    public static String  buildHeader(){
+    public String  buildHeader(){
         String style="";
         style=retFixed();
 
@@ -25,13 +25,9 @@ public class Header {
         return codeHTML;
     }
 
-
-
-    public static void main(String[] args) {
-        buildHeader();
-    }
-
-
+//    public static void main(String[] args) {
+//        buildHeader();
+//    }
 
     public static boolean isFixed() {
         return fixed;
@@ -49,13 +45,20 @@ public class Header {
     }
 
 
-    public boolean isNav() {
-        return nav;
+//    public boolean isNav() {
+//        return nav;
+//    }
+//
+//    public void setNav(boolean nav) {
+//        this.nav = nav;
+//    }
+
+
+    public boolean isAddHeader() {
+        return addHeader;
     }
 
-    public void setNav(boolean nav) {
-        this.nav = nav;
+    public void setAddHeader(boolean addHeader) {
+        this.addHeader = addHeader;
     }
-
-
 }

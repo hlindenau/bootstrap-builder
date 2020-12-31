@@ -13,38 +13,41 @@ import java.util.Scanner;
 
 public class Tag {
 
-    private String name;
-    private String property;
-    private String content;
+    private static String name;
+    private static String property;
+    private static String content;
 
     public Tag() {
     }
 
+//    public static void main(String[] args) throws JSONException {
+//        JSONArray jsonArray = new JSONArray("[{\"a\":1},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
+//
+//        //System.out.println(jsonArray);
+//        buildMeta(jsonArray);
+//    }
 
-
-
-    public String buildMeta(JSONArray arr) throws JSONException {
+    public static String buildMeta(JSONArray tags) throws JSONException {
         String meta="";
 
 
-        for (int i=0 ;i<arr.length();i++){
-            JSONArray subarray =(JSONArray) arr.get(i);
+        for (int i=0 ;i<tags.length();i++){
+            meta+="<meta ";
+            JSONObject json = tags.getJSONObject(i);
+            Iterator<String> keys = json.keys();
+
+            while (keys.hasNext()) {
+                String key = keys.next();
+                meta+=(key +"=\""+ json.get(key)+"\"");
+                // System.out.println("Key :" + key + "  Value :" + json.get(key));
+            }
+            meta+=">\n";
         }
+        System.out.println(meta);
 
 
-        Map<String, String> values = new HashMap<String, String>();
-        values.put("content",content);
-        values.put("name",name);
-
-
-
-        StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
-        String codeHTML = sub.replace("<meta name=%(name) content=%(content)>");
-
-        return codeHTML;
+        return meta;
     }
-
-
 
 
     public String getName() {
