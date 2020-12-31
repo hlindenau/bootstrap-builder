@@ -20,12 +20,12 @@ public class Tag {
     public Tag() {
     }
 
-//    public static void main(String[] args) throws JSONException {
-//        JSONArray jsonArray = new JSONArray("[{\"a\":1},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
-//
-//        //System.out.println(jsonArray);
-//        buildMeta(jsonArray);
-//    }
+    public static void main(String[] args) throws JSONException {
+        JSONArray jsonArray = new JSONArray("[{\"a\":1},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
+
+        //System.out.println(jsonArray);
+        buildMeta(jsonArray);
+    }
 
     public static String buildMeta(JSONArray tags) throws JSONException {
         String meta="";
@@ -39,7 +39,7 @@ public class Tag {
             while (keys.hasNext()) {
                 String key = keys.next();
                 meta+=(key +"=\""+ json.get(key)+"\"");
-                // System.out.println("Key :" + key + "  Value :" + json.get(key));
+               // System.out.println("Key :" + key + "  Value :" + json.get(key));
             }
             meta+=">\n";
         }
