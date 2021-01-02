@@ -21,17 +21,17 @@ public class Tag {
     }
 
     public static void main(String[] args) throws JSONException {
-        JSONArray jsonArray = new JSONArray("[{\"a\":1},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
+        JSONArray jsonArray = new JSONArray("[{\"description\":1},{\"title\": \"dupa\"},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
 
 
         //System.out.println(jsonArray);
-        buildMeta(jsonArray);
+        buildMetaOG(jsonArray);
 
     }
 
     public static String buildMeta(JSONArray tags) throws JSONException {
-        String meta="<meta ";
-
+        String fullMetaString="";
+        Map<String, String> values = new HashMap<String, String>();
 
         for (int i=0 ;i<tags.length();i++){
             JSONObject json = tags.getJSONObject(i);
@@ -39,16 +39,66 @@ public class Tag {
 
             while (keys.hasNext()) {
                 String key = keys.next();
-                meta+=(key +"=\""+ json.get(key)+"\" ");
-               // System.out.println("Key :" + key + "  Value :" + json.get(key));
+                if(key.equals("title")){
+                    fullMetaString+=("<title>"+ json.get(key).toString() +"</title>\n");
+                    break;}
+                values.put("name",key);
+                values.put("content",json.get(key).toString());
+
+                StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+                String codeHTML = sub.replace("<meta name=\"%(name)\" content=\"%(content)\">\n");
+                fullMetaString+=codeHTML;
             }
-            meta+=">";
         }
-        System.out.println(meta);
-
-
-        return meta;
+        System.out.println(fullMetaString);
+        return fullMetaString;
     }
+
+
+    public static String buildMetaTwitter(JSONArray tags) throws JSONException {
+        String fullMetaString="";
+        Map<String, String> values = new HashMap<String, String>();
+
+        for (int i=0 ;i<tags.length();i++){
+            JSONObject json = tags.getJSONObject(i);
+            Iterator<String> keys = json.keys();
+
+            while (keys.hasNext()) {
+                String key = keys.next();
+
+                values.put("name",key);
+                values.put("content",json.get(key).toString());
+
+                StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+                String codeHTML = sub.replace("<meta name=\"twitter:%(name)\" content=\"%(content)\">\n");
+                fullMetaString+=codeHTML;
+            }
+        }
+        System.out.println(fullMetaString);
+        return fullMetaString;
+    }
+
+    public static String buildMetaOG(JSONArray tags) throws JSONException {
+        String fullMetaString="";
+        Map<String, String> values = new HashMap<String, String>();
+
+        for (int i=0 ;i<tags.length();i++){
+            JSONObject json = tags.getJSONObject(i);
+            Iterator<String> keys = json.keys();
+
+            while (keys.hasNext()) {
+                String key = keys.next();
+                values.put("name",key);
+                values.put("content",json.get(key).toString());
+                StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+                String codeHTML = sub.replace("<meta property=\"og:%(name)\" content=\"%(content)\">\n");
+                fullMetaString+=codeHTML;
+            }
+        }
+        System.out.println(fullMetaString);
+        return fullMetaString;
+    }
+
 
 
     public String getName() {
