@@ -23,7 +23,6 @@ public class Tag {
     public static void main(String[] args) throws JSONException {
         JSONArray jsonArray = new JSONArray("[{\"description\":1},{\"title\": \"dupa\"},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
 
-
         //System.out.println(jsonArray);
         buildMetaOG(jsonArray);
 
@@ -32,6 +31,7 @@ public class Tag {
     public static String buildMeta(JSONArray tags) throws JSONException {
         String fullMetaString="";
         Map<String, String> values = new HashMap<String, String>();
+        buildMeta(tags);
 
         for (int i=0 ;i<tags.length();i++){
             JSONObject json = tags.getJSONObject(i);
@@ -72,7 +72,9 @@ public class Tag {
                 StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
                 String codeHTML = sub.replace("<meta name=\"twitter:%(name)\" content=\"%(content)\">\n");
                 fullMetaString+=codeHTML;
+
             }
+
         }
         System.out.println(fullMetaString);
         return fullMetaString;

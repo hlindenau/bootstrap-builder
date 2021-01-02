@@ -3,43 +3,38 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.bootstrapbuilder.logic.BootstrapBuilder;
+import pl.put.poznan.bootstrapbuilder.logic.Director;
+import pl.put.poznan.bootstrapbuilder.logic.Header;
 
 import java.util.Arrays;
 
 
 @RestController
-@RequestMapping("/{text}")
+@RequestMapping("/bootstrap-builder")
 public class BootstrapBuilderController {
 
     private static final Logger logger = LoggerFactory.getLogger(BootstrapBuilderController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
-
-
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        BootstrapBuilder transformer = new BootstrapBuilder();
-        return "";
-    }
+//    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+//    public String get(@PathVariable String text,
+//                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
+//        logger.debug(text);
+//        logger.debug(Arrays.toString(transforms));
+//        // perform the transformation, you should run your logic here, below is just a silly example
+//        BootstrapBuilder transformer = new BootstrapBuilder();
+//        return "";
+//    }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
+    public String post(@RequestBody Request request) {
 
         // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+        logger.debug(request.toString());
 
-        // perform the transformation, you should run your logic here, below is just a silly example
-        BootstrapBuilder transformer = new BootstrapBuilder();
-        return "";
+//        // perform the transformation, you should run your logic here, below is just a silly example
+//        BootstrapBuilder transformer = new BootstrapBuilder();
+        return Director.create(request.getHeader(), request.getFooter());
     }
-
-
 
 }
 

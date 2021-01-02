@@ -4,20 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class BootstrapBuilder {
+public class BootstrapBuilder implements Builder{
 
     static Logger LOGGER = LoggerFactory.getLogger(BootstrapBuilder.class);
     private String jsonContent;
     private Header header;
+    private Footer footer;
     private String WebpageName;
 
 
     public Header getHeader() {
         return header;
-    }
-
-    public void setHeader(Header header) {
-        this.header = header;
     }
 
     public void setWebpageName(String webpageName) {
@@ -26,6 +23,26 @@ public class BootstrapBuilder {
 
     public String getWebpageName() {
         return WebpageName;
+    }
+
+    @Override
+    public Builder setHeader(Header header) {
+        this.header = header;
+
+        return this;
+    }
+
+    @Override
+    public Builder setFooter(Footer footer) {
+        this.footer = footer;
+
+        return this;
+    }
+
+    @Override
+    public String build() {
+
+        return header.buildHeader() + footer.buildFooter();
     }
 
 
