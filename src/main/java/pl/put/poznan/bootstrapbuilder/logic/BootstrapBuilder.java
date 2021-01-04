@@ -1,5 +1,6 @@
 package pl.put.poznan.bootstrapbuilder.logic;
 
+import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,20 +11,9 @@ public class BootstrapBuilder implements Builder{
     private String jsonContent;
     private Header header;
     private Footer footer;
+    private Tag tag;
     private String WebpageName;
 
-
-    public Header getHeader() {
-        return header;
-    }
-
-    public void setWebpageName(String webpageName) {
-        WebpageName = webpageName;
-    }
-
-    public String getWebpageName() {
-        return WebpageName;
-    }
 
     @Override
     public Builder setHeader(Header header) {
@@ -40,50 +30,46 @@ public class BootstrapBuilder implements Builder{
     }
 
     @Override
+    public Builder setTag(Tag tag) {
+        this.tag = tag;
+
+        return this;
+    }
+
+    @Override
     public String build() {
+        String html = "";
 
-        return header.buildHeader() + footer.buildFooter();
+        try {
+            html = tag.buildMeta()
+                    + tag.buildMetaTwitter()
+                    + tag.buildMetaOG()
+                    + header.buildHeader()
+                    + footer.buildFooter();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return html;
     }
 
-
-    /**
-     * W TEJ KLASIE DAŁBYM FORMULARZ DO ZAZNACZENIA CO SIE CHCE MIEC NA SWOIM SZKIELECIE STRONY
-     *
-     *
-     * I ZWRACA ON KOD HTML W POSTACI STRINGA
-     */
-    /*
-    public String getBodyContent() {
-        String result = "";
-
-
-
-        //navbar
-        if (bootstrapinfo.getHeader()!= null) {
-            LOGGER.info("Navbar added");
-            result += "<nav class=\"navbar";
-        }
-
-        else{
-            LOGGER.debug("Brak lub błąd headera");
-        }
-
-        result += "<main class=\"";
-
-        if (bootstrapinfo.getHeader().getFixed()) {  //TO TRZEBA NAPISAC KLASY HEADER FOOTER ITD.
-            result += "; margin-top: 100px";
-        } else {
-            result += "; margin-top: 10px";
-        }
-        result += "\">";
-
-
-
-        //footer
-        if (bootstrapinfo.getFooter()!= null) {
-            result += "<footer class=\"";
-        }
-        return "";
+    public Header getHeader() {
+        return header;
     }
-*/
+
+    public Footer getFooter() {
+        return footer;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setWebpageName(String webpageName) {
+        WebpageName = webpageName;
+    }
+
+    public String getWebpageName() {
+        return WebpageName;
+    }
+
 }

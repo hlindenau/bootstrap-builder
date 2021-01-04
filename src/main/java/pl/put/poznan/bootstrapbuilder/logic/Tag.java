@@ -13,118 +13,112 @@ import java.util.Scanner;
 
 public class Tag {
 
-    private static String name;
-    private static String property;
-    private static String content;
+    private HashMap<String, String> metaArray;
+    private HashMap<String, String> twitterArray;
+    private HashMap<String, String> ogArray;
 
     public Tag() {
     }
 
-    public static void main(String[] args) throws JSONException {
-        JSONArray jsonArray = new JSONArray("[{\"description\":1},{\"title\": \"dupa\"},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
+//    public static void main(String[] args) throws JSONException {
+//        JSONArray jsonArray = new JSONArray("[{\"description\":1},{\"title\": \"dupa\"},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
+//
+//        //System.out.println(jsonArray);
+//        buildMetaOG(jsonArray);
+//
+//    }
 
-        //System.out.println(jsonArray);
-        buildMetaOG(jsonArray);
-
-    }
-
-    public static String buildMeta(JSONArray tags) throws JSONException {
+    public String buildMeta() throws JSONException {
         String fullMetaString="";
         Map<String, String> values = new HashMap<String, String>();
-        buildMeta(tags);
 
-        for (int i=0 ;i<tags.length();i++){
-            JSONObject json = tags.getJSONObject(i);
-            Iterator<String> keys = json.keys();
+        JSONObject json = new JSONObject(metaArray); //metaArray.getJSONObject(i);
+        Iterator<String> keys = json.keys();
 
-            while (keys.hasNext()) {
-                String key = keys.next();
-                if(key.equals("title")){
-                    fullMetaString+=("<title>"+ json.get(key).toString() +"</title>\n");
-                    break;}
-                values.put("name",key);
-                values.put("content",json.get(key).toString());
+        while (keys.hasNext()) {
+            String key = keys.next();
+            if(key.equals("title")){
+                fullMetaString+=("<title>"+ json.get(key).toString() +"</title>\n");
+                break;}
+            values.put("name",key);
+            values.put("content",json.get(key).toString());
 
-                StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
-                String codeHTML = sub.replace("<meta name=\"%(name)\" content=\"%(content)\">\n");
-                fullMetaString+=codeHTML;
-            }
+            StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+            String codeHTML = sub.replace("<meta name=\"%(name)\" content=\"%(content)\">\n");
+            fullMetaString+=codeHTML;
         }
+//        for (int i=0 ; i < metaArray.size(); i++){
+//        }
         System.out.println(fullMetaString);
         return fullMetaString;
     }
 
 
-    public static String buildMetaTwitter(JSONArray tags) throws JSONException {
+    public String buildMetaTwitter() throws JSONException {
         String fullMetaString="";
         Map<String, String> values = new HashMap<String, String>();
 
-        for (int i=0 ;i<tags.length();i++){
-            JSONObject json = tags.getJSONObject(i);
-            Iterator<String> keys = json.keys();
+        JSONObject json = new JSONObject(twitterArray);
+        Iterator<String> keys = json.keys();
 
-            while (keys.hasNext()) {
-                String key = keys.next();
+        while (keys.hasNext()) {
+            String key = keys.next();
 
-                values.put("name",key);
-                values.put("content",json.get(key).toString());
+            values.put("name",key);
+            values.put("content",json.get(key).toString());
 
-                StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
-                String codeHTML = sub.replace("<meta name=\"twitter:%(name)\" content=\"%(content)\">\n");
-                fullMetaString+=codeHTML;
-
-            }
+            StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+            String codeHTML = sub.replace("<meta name=\"twitter:%(name)\" content=\"%(content)\">\n");
+            fullMetaString+=codeHTML;
 
         }
         System.out.println(fullMetaString);
         return fullMetaString;
     }
 
-    public static String buildMetaOG(JSONArray tags) throws JSONException {
+    public String buildMetaOG() throws JSONException {
         String fullMetaString="";
         Map<String, String> values = new HashMap<String, String>();
 
-        for (int i=0 ;i<tags.length();i++){
-            JSONObject json = tags.getJSONObject(i);
-            Iterator<String> keys = json.keys();
+        JSONObject json = new JSONObject(ogArray);
+        Iterator<String> keys = json.keys();
 
-            while (keys.hasNext()) {
-                String key = keys.next();
-                values.put("name",key);
-                values.put("content",json.get(key).toString());
-                StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
-                String codeHTML = sub.replace("<meta property=\"og:%(name)\" content=\"%(content)\">\n");
-                fullMetaString+=codeHTML;
-            }
+        while (keys.hasNext()) {
+            String key = keys.next();
+            values.put("name",key);
+            values.put("content",json.get(key).toString());
+            StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+            String codeHTML = sub.replace("<meta property=\"og:%(name)\" content=\"%(content)\">\n");
+            fullMetaString+=codeHTML;
         }
+
         System.out.println(fullMetaString);
         return fullMetaString;
     }
 
 
-
-    public String getName() {
-        return name;
+    public HashMap<String, String> getMetaArray() {
+        return metaArray;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMetaArray(HashMap<String, String> metaArray) {
+        this.metaArray = metaArray;
     }
 
-    public String getProperty() {
-        return property;
+    public HashMap<String, String> getTwitterArray() {
+        return twitterArray;
     }
 
-    public void setProperty(String property) {
-        this.property = property;
+    public void setTwitterArray(HashMap<String, String> twitterArray) {
+        this.twitterArray = twitterArray;
     }
 
-    public String getContent() {
-        return content;
+    public HashMap<String, String> getOgArray() {
+        return ogArray;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setOgArray(HashMap<String, String> ogArray) {
+        this.ogArray = ogArray;
     }
 
 }

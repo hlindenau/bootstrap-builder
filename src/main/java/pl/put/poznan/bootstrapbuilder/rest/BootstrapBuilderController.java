@@ -1,4 +1,6 @@
 package pl.put.poznan.bootstrapbuilder.rest;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +35,7 @@ public class BootstrapBuilderController {
 
 //        // perform the transformation, you should run your logic here, below is just a silly example
 //        BootstrapBuilder transformer = new BootstrapBuilder();
-        return Director.create(request.getHeader(), request.getFooter());
+        return Director.create(request.getTag(), request.getHeader(), request.getFooter());
     }
 
 }

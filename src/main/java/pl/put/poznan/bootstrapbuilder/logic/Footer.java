@@ -8,7 +8,12 @@ public class Footer {
     }
 
     public String buildFooter(){
-        return "<footer></footer>";
+        if (addFooter){
+            System.out.println("\n<footer></footer>");
+            return "\n<footer></footer>";
+        }
+        else
+            return "";
     }
 
     public boolean isAddFooter() {
