@@ -7,37 +7,42 @@ import java.util.Map;
 
 public class Header {
     private boolean addHeader=false;
-    private static boolean fixed=false;
+    private boolean fixed=false;
 //    private boolean nav;
 
     public String  buildHeader(){
-        String style="";
-        style=retFixed();
+        if (isAddHeader()){
 
-        //Analogicznie do retFixed mozemy odac inne elementy (navbar, search bar etc.)
+            String style="";
+            style=retFixed();
 
-        Map<String, String> values = new HashMap<String, String>();
-        values.put("styles",style);
-        StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
-        String codeHTML = sub.replace("<header %(styles)> </header>");
+            //Analogicznie do retFixed mozemy odac inne elementy (navbar, search bar etc.)
 
-        System.out.println(codeHTML);
-        return codeHTML;
+            Map<String, String> values = new HashMap<String, String>();
+            values.put("styles",style);
+            StrSubstitutor sub = new StrSubstitutor(values, "%(", ")");
+            String codeHTML = sub.replace("<header %(styles)> </header>");
+
+            System.out.println(codeHTML);
+            return codeHTML;
+        }
+        else
+            return "";
     }
 
 //    public static void main(String[] args) {
 //        buildHeader();
 //    }
 
-    public static boolean isFixed() {
-        return fixed;
+    public boolean isFixed() {
+        return this.fixed;
     }
 
     public void setFixed(boolean fixed){
         this.fixed = fixed;
     }
 
-    public static String retFixed(){
+    public String retFixed(){
         String style="";
         if (isFixed()) { style+="style=\"position:fixed\""; }
         else{ style+="style=\"position:static\""; }

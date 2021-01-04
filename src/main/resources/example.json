@@ -1,0 +1,30 @@
+{
+    "header": {
+        "addHeader": true,
+        "fixed": true
+    },
+    "footer":{
+        "addFooter": true
+    },
+    "tag":{
+        "metaArray": {
+            "title": "met",
+            "keywords": "klucz",
+            "description": "opis1",
+            "image": "image.jpg"
+        },
+        "twitterArray": {
+            "title": "twit",
+            "description": "opis2",
+            "card": "card2",
+            "image": "image2.jpg"
+        },
+        "ogArray": {
+            "title": "og",
+            "description": "opis3",
+            "url": "url3",
+            "image": "image3.jpg"
+        }
+    }
+
+}
