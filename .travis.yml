@@ -7,17 +7,4 @@ notifications:
       on_success: never
       on_failure: always
     
-before_deploy:
-  - mvn test -B
 
-deploy:
-  provider: releases
-  overwrite: true
-  skip_cleanup: true
-  edge: true
-  token: $GITHUB_OAUTH
-  on:
-    tags: true
-    branch: main
-  file:
-    - target/bootstrap-project-architecture-$TRAVIS_TAG.jar
