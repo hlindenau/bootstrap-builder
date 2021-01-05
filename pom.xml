@@ -13,7 +13,7 @@
 
     <groupId>pl.put.poznan</groupId>
     <artifactId>bootstrap-builder-delta</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
 	<properties>
         <java.version>11</java.version>
