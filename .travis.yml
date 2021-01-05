@@ -12,10 +12,6 @@ before_deploy:
   - mvn test -B
 
 deploy:
-  provider: releases
   api_key: $GITHUB_OAUTH
   file: target/bootstrap-project-architecture-$TRAVIS_TAG.jar
   skip_cleanup: true
-  # Modify this to build on every commit
-  on:
-    tags: true
