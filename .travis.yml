@@ -1,13 +1,5 @@
 language: java
 
-jdk:
-  - oraclejdk8
-  - oraclejdk11
-  - oraclejdk15
-  - openjdk10
-  - openjdk11
-  - openjdk15
-
 notifications:
   email:
       recipients:
