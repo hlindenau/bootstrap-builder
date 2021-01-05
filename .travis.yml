@@ -13,12 +13,9 @@ before_deploy:
 
 deploy:
   provider: releases
-  overwrite: true
+  api_key: $GITHUB_OAUTH
+  file: target/bootstrap-project-architecture-$TRAVIS_TAG.jar
   skip_cleanup: true
-  edge: true
-  token: $GITHUB_OAUTH
+  # Modify this to build on every commit
   on:
     tags: true
-    branch: main
-  file:
-    - target/bootstrap-project-architecture-$TRAVIS_TAG.jar
