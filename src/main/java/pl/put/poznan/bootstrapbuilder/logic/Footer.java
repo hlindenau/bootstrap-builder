@@ -6,7 +6,11 @@ public class Footer {
 
     public Footer(){
     }
-
+    /**
+     * resposible for building HTML code of Footer
+     *
+     * @return HTML code
+     */
     public String buildFooter(){
         if (addFooter){
             System.out.println("\n<footer></footer>");

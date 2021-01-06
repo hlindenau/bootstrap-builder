@@ -28,6 +28,13 @@ public class Tag {
 //
 //    }
 
+    /**
+     * responsible for building HTML code of Meta tags
+     *
+     * @param metaArray holds JSON object with information about meta tags
+     * @return HTML code
+     */
+
     public String buildMeta() throws JSONException {
         String fullMetaString="";
         Map<String, String> values = new HashMap<String, String>();
@@ -53,7 +60,12 @@ public class Tag {
         return fullMetaString;
     }
 
-
+    /**
+     * responsible for building HTML code of Twitter Meta tags
+     *
+     * @param twitterArray holds JSON object with information about Twitter meta tags
+     * @return HTML code
+     */
     public String buildMetaTwitter() throws JSONException {
         String fullMetaString="";
         Map<String, String> values = new HashMap<String, String>();
@@ -75,6 +87,13 @@ public class Tag {
         System.out.println(fullMetaString);
         return fullMetaString;
     }
+
+    /**
+     * responsible for building HTML code of OG Meta tags
+     *
+     * @param ogArray holds JSON object with information about OG meta tags
+     * @return HTML code
+     */
 
     public String buildMetaOG() throws JSONException {
         String fullMetaString="";

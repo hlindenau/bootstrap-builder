@@ -10,6 +10,10 @@ public class Header {
     private boolean fixed=false;
 //    private boolean nav;
 
+    /**
+     * resposible for building HTML code of Header
+     *@return HTML code
+     */
     public String  buildHeader(){
         if (isAddHeader()){
 
@@ -42,6 +46,11 @@ public class Header {
         this.fixed = fixed;
     }
 
+    /**
+     * responsible for building fragment of Header that decides value of "fixed"
+     * based on user's choice.
+     * @return HTML code
+     */
     public String retFixed(){
         String style="";
         if (isFixed()) { style+="style=\"position:fixed\""; }
