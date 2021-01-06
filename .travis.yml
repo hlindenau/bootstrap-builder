@@ -17,8 +17,7 @@ deploy:
   provider: releases
   overwrite: true
   skip_cleanup: true
-  edge: true
-  token: \$OAUTH_TOKEN
+  token: "travis"
   on:
     branch: working
   file:
