@@ -9,6 +9,7 @@ notifications:
     
 before_deploy:
   - mvn install
+  - sudo apt install openjfx
   - mvn test -B
 
 deploy:
