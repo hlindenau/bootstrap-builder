@@ -18,7 +18,7 @@ deploy:
   overwrite: true
   skip_cleanup: true
   edge: true
-  token: "871a2fba084eca29aa994ecb875e08ce52dd4efc"
+  token: 088d8a324e33fd653854f7e4a582eca28de51c95
   on:
     branch: working
   file:
