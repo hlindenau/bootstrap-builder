@@ -18,7 +18,7 @@ deploy:
   overwrite: true
   skip_cleanup: true
   edge: true
-  token: $OAUTH_TOKEN
+  token: \$OAUTH_TOKEN
   on:
     branch: working
   file:
