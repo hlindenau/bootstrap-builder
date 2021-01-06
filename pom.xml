@@ -13,7 +13,7 @@
 
     <groupId>pl.put.poznan</groupId>
     <artifactId>bootstrap-builder-delta</artifactId>
-    <version>1.0</version>
+    <version>1.1.2</version>
 
 	<properties>
         <java.version>11</java.version>
@@ -25,7 +25,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -67,6 +66,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
