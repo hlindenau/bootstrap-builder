@@ -20,7 +20,6 @@ deploy:
   edge: true
   token: $GITHUB_OAUTH
   on:
-    tags: true
-    branch: main
+    branch: working
   file:
     - target/bootstrap-project-architecture-$TRAVIS_TAG.jar
