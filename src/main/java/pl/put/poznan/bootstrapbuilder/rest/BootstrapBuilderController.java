@@ -31,10 +31,12 @@ public class BootstrapBuilderController {
     public String post(@RequestBody Request request) {
 
         // log the parameters
-        logger.debug(request.toString());
+        logger.debug(String.valueOf(request));
+        logger.info("Received request: ");
+        logger.info("Header: " + request.getHeader().toString());
+        logger.info("Footer: " + request.getFooter().toString());
+        logger.info("Meta tags: " + request.getTag().toString());
 
-//        // perform the transformation, you should run your logic here, below is just a silly example
-//        BootstrapBuilder transformer = new BootstrapBuilder();
         return Director.create(request.getTag(), request.getHeader(), request.getFooter());
     }
 
