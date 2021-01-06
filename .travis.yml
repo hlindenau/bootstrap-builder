@@ -18,7 +18,7 @@ deploy:
   overwrite: true
   skip_cleanup: true
   edge: true
-  token: 088d8a324e33fd653854f7e4a582eca28de51c95
+  token: "travis"
   on:
     branch: working
   file:
