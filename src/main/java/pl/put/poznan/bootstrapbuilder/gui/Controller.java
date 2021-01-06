@@ -1,4 +1,4 @@
-package sample;
+package pl.put.poznan.bootstrapbuilder.gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -327,6 +327,7 @@ public void putfooter(JSONObject object){
         puttags(object);
 
         try {
+
             System.out.println(object.toString(4));
         }
         catch(JSONException e){
