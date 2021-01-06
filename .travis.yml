@@ -17,7 +17,7 @@ deploy:
   provider: releases
   overwrite: true
   skip_cleanup: true
-  token: "travis"
+  token: $GITHUB_TOKEN
   on:
     branch: working
   file:
