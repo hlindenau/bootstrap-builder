@@ -20,5 +20,6 @@ deploy:
   skip_cleanup: true
   token: $GITHUB_TOKEN
   on:
-    branch: working
+    tags: true
+    branch: main
 
