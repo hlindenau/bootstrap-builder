@@ -1,4 +1,4 @@
-package sample;
+package pl.put.poznan.bootstrapbuilder.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/sample.fxml"));
+        Parent root = (Parent) loader.load();
         primaryStage.setTitle("Bootstrap builder");
         primaryStage.setScene(new Scene(root, 500, 475));
         primaryStage.show();
