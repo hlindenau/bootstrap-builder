@@ -31,7 +31,7 @@ public class Tag {
     /**
      * responsible for building HTML code of Meta tags
      *
-     * @param metaArray holds JSON object with information about meta tags
+     *
      * @return HTML code
      */
 
@@ -63,7 +63,7 @@ public class Tag {
     /**
      * responsible for building HTML code of Twitter Meta tags
      *
-     * @param twitterArray holds JSON object with information about Twitter meta tags
+     *
      * @return HTML code
      */
     public String buildMetaTwitter() throws JSONException {
@@ -91,7 +91,7 @@ public class Tag {
     /**
      * responsible for building HTML code of OG Meta tags
      *
-     * @param ogArray holds JSON object with information about OG meta tags
+     *
      * @return HTML code
      */
 
