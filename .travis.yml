@@ -20,6 +20,7 @@ deploy:
   edge: true
   token: "travis"
   on:
+    tags: true
     branch: working
   file:
     - target/bootstrap-project-architecture-$TRAVIS_TAG.jar
