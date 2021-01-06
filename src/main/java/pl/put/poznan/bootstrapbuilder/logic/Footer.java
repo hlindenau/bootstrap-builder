@@ -1,5 +1,9 @@
 package pl.put.poznan.bootstrapbuilder.logic;
 
+/** Class builds the footer of html page
+ *
+ */
+
 public class Footer {
 
     private boolean addFooter=false;

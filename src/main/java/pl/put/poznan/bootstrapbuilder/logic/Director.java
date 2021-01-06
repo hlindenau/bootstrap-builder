@@ -1,5 +1,10 @@
 package pl.put.poznan.bootstrapbuilder.logic;
 
+/** Class implements Builder design pattern
+ *
+ *
+ */
+
 public class Director {
 
     /** responsible for organising data and running main building method

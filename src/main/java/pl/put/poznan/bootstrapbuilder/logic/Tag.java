@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.*;
 import java.util.Map;
 import java.util.Scanner;
+/**
+ * Class builds the metatags of html page
+ */
 
 public class Tag {
 
@@ -19,14 +22,6 @@ public class Tag {
 
     public Tag() {
     }
-
-//    public static void main(String[] args) throws JSONException {
-//        JSONArray jsonArray = new JSONArray("[{\"description\":1},{\"title\": \"dupa\"},{\"b\":2,\"c\":3},{\"d\":4},{\"e\":5,\"f\":7}]");
-//
-//        //System.out.println(jsonArray);
-//        buildMetaOG(jsonArray);
-//
-//    }
 
     /**
      * responsible for building HTML code of Meta tags
@@ -54,8 +49,6 @@ public class Tag {
             String codeHTML = sub.replace("<meta name=\"%(name)\" content=\"%(content)\">\n");
             fullMetaString+=codeHTML;
         }
-//        for (int i=0 ; i < metaArray.size(); i++){
-//        }
         System.out.println(fullMetaString);
         return fullMetaString;
     }

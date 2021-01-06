@@ -5,14 +5,16 @@ import org.apache.commons.lang3.text.StrSubstitutor;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Class builds the header of html page
+ */
 public class Header {
     private boolean addHeader=false;
     private boolean fixed=false;
 //    private boolean nav;
 
     /**
-     * resposible for building HTML code of Header
+     * responsible for building HTML code of Header
      *@return HTML code as String
      */
     public String  buildHeader(){

@@ -8,6 +8,10 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class responsible for implementing final HTML code
+ * implements Builder interface
+ */
 
 public class BootstrapBuilder implements Builder{
 
