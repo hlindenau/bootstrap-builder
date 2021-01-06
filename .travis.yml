@@ -7,9 +7,10 @@ notifications:
       on_success: never
       on_failure: always
     
+jdk: openjdk15 
+   
 before_deploy:
   - mvn install
-  - sudo apt install openjfx
   - mvn test -B
 
 deploy:
