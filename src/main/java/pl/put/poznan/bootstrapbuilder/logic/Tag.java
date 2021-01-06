@@ -32,7 +32,7 @@ public class Tag {
      * responsible for building HTML code of Meta tags
      *
      *
-     * @return HTML code
+     * @return HTML code as String
      */
 
     public String buildMeta() throws JSONException {
@@ -64,7 +64,7 @@ public class Tag {
      * responsible for building HTML code of Twitter Meta tags
      *
      *
-     * @return HTML code
+     * @return HTML code as String
      */
     public String buildMetaTwitter() throws JSONException {
         String fullMetaString="";
@@ -92,7 +92,7 @@ public class Tag {
      * responsible for building HTML code of OG Meta tags
      *
      *
-     * @return HTML code
+     * @return HTML code as String
      */
 
     public String buildMetaOG() throws JSONException {

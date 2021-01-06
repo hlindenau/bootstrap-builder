@@ -9,7 +9,7 @@ public class Footer {
     /**
      * resposible for building HTML code of Footer
      *
-     * @return HTML code
+     * @return HTML code as String
      */
     public String buildFooter(){
         if (addFooter){

@@ -5,6 +5,7 @@ import org.apache.commons.lang3.text.StrSubstitutor;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Header {
     private boolean addHeader=false;
     private boolean fixed=false;
@@ -12,7 +13,7 @@ public class Header {
 
     /**
      * resposible for building HTML code of Header
-     *@return HTML code
+     *@return HTML code as String
      */
     public String  buildHeader(){
         if (isAddHeader()){
