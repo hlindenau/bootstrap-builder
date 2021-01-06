@@ -15,7 +15,8 @@ before_deploy:
 
 deploy:
   provider: releases
-  file: "bootstrap-project-architecture-$TRAVIS_TAG.jar"
+  file: 
+  - target/*.jar
   skip_cleanup: true
   token: $GITHUB_TOKEN
   on:
