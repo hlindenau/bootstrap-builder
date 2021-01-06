@@ -16,7 +16,7 @@ before_deploy:
 deploy:
   provider: releases
   file: 
-  - target/bootstrap-builder.jar
+  - target/bootstrap-builder-1.1.2.jar
   skip_cleanup: true
   token: $GITHUB_TOKEN
   on:
