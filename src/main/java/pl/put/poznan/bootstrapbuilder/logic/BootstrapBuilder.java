@@ -40,6 +40,12 @@ public class BootstrapBuilder implements Builder{
         return this;
     }
 
+    /**
+     *  responsible for building final HTML code. Method sumplements given HTML scheme with Header,footer and meta tags
+     *  based on user's choice
+     * @return HTML code as String
+     */
+
     @Override
     public String build() {
         String html = "";
