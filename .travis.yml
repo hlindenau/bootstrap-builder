@@ -18,7 +18,7 @@ deploy:
   overwrite: true
   skip_cleanup: true
   edge: true
-  token: "travis"
+  token: $OAUTH_TOKEN
   on:
     tags: true
     branch: working
