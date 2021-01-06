@@ -18,7 +18,7 @@ deploy:
   overwrite: true
   skip_cleanup: true
   edge: true
-  token: $GITHUB_OAUTH
+  token: "871a2fba084eca29aa994ecb875e08ce52dd4efc"
   on:
     branch: working
   file:
