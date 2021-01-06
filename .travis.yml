@@ -22,4 +22,3 @@ deploy:
   on:
     tags: true
     branch: new-main
-
