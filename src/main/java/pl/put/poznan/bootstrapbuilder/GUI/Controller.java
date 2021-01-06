@@ -1,4 +1,4 @@
-package sample;
+package pl.put.poznan.bootstrapbuilder.GUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;

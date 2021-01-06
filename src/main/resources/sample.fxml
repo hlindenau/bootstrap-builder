@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="480.0" maxWidth="485.0" minHeight="454.0" minWidth="445.0" prefHeight="454.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="480.0" maxWidth="485.0" minHeight="454.0" minWidth="445.0" prefHeight="454.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.put.poznan.bootstrapbuilder.GUI.Controller">
    <children>
       <CheckBox fx:id="basic1" layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#mark1" text="image" />
       <CheckBox fx:id="basic2" layoutX="16.0" layoutY="71.0" mnemonicParsing="false" onAction="#mark2" text="description" />

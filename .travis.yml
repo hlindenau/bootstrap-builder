@@ -6,7 +6,7 @@ notifications:
         - hubert.lindenau@gmail.com
       on_success: never
       on_failure: always
-    
+      
 jdk: openjdk15 
    
 before_deploy:
@@ -21,4 +21,3 @@ deploy:
   token: $GITHUB_TOKEN
   on:
     branch: working
-
