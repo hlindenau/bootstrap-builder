@@ -94,6 +94,9 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:linux:15.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:15.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:linux:15.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.13" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.14" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.jayway.jsonpath:json-path:2.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.minidev:json-smart:2.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.minidev:accessors-smart:1.2" level="project" />

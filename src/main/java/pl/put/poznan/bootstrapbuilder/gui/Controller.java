@@ -8,13 +8,24 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import pl.put.poznan.bootstrapbuilder.logic.Director;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+
 
 public class Controller {
 
@@ -322,15 +333,15 @@ public void putfooter(JSONObject object){
       JSONObject object1 = new JSONObject();
 
 
-    if (footer_enabled.isSelected()){
-          try{
-              object1.put("addFooter",true );
-              object.put("footer",object1);
-          }
-          catch(JSONException e){
-              e.printStackTrace();
-          }
+
+      try{
+          object1.put("addFooter",true );
+          object.put("footer",object1);
       }
+      catch(JSONException e){
+          e.printStackTrace();
+      }
+
 
 }
 
@@ -347,22 +358,44 @@ public void putdirectory(JSONObject object){
 
 }
 
-    public void ok() {
+    public void ok() throws IOException {
         JSONObject object = new JSONObject();
         putfooter(object);
         putheader(object);
         puttags(object);
         savefile=new File(savefile,"StronaBB.html");
-        putdirectory(object);
 
-        try {
-            System.out.println(object.toString(4));
+        URL url = new URL ("http://localhost:8081/bootstrap-builder");
+        HttpURLConnection con = (HttpURLConnection)url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("Content-Type", "application/json; utf-8");
+        con.setRequestProperty("Accept", "application/json");
+        con.setDoOutput(true);
+        System.out.println(object.toString());
+        try(OutputStream os = con.getOutputStream()) {
+            byte[] input = String.valueOf(object).getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
 
+
+        try(BufferedReader br = new BufferedReader(
+                new InputStreamReader(con.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine);
+                response.append("\n");
+            }
+            PrintWriter out = new PrintWriter(savefile);
+            out.println(response.toString());
+            out.close();
+            System.out.println(response.toString());
         }
-        catch(JSONException e){
-            e.printStackTrace();
-        }
+
+
     }
+
+
 
     public void fileBrowser(ActionEvent actionEvent) {
 
@@ -371,8 +404,7 @@ public void putdirectory(JSONObject object){
         Stage stage = (Stage) paneid.getScene().getWindow();
 
         savefile = directorychooser.showDialog(stage);
-
-        //savefile=new File(savefile,"StronaBB.html");
+        
         directoryid.setText(savefile.getAbsolutePath());
 
     }

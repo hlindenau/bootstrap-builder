@@ -29,7 +29,7 @@ public class BootstrapBuilderController {
 //    }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@RequestBody Request request) throws FileNotFoundException {
+    public String post(@RequestBody Request request) {
 
         // log the parameters
         logger.debug(String.valueOf(request));
@@ -39,7 +39,7 @@ public class BootstrapBuilderController {
         logger.info("Meta tags: " + request.getTag().toString());
 
 
-        return Director.create(request.getTag(), request.getHeader(), request.getFooter(),request.getDirectory());
+        return Director.create(request.getTag(), request.getHeader(), request.getFooter());
     }
 
 }
