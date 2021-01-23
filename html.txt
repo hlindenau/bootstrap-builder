@@ -1,0 +1,1 @@
+{"footer":{"addFooter":true},"header":{"addHeader":false},"tag":{"ogArray":{"card":"asdasd"},"metaArray":{"description":"testowe"},"twitterArray":{}}}

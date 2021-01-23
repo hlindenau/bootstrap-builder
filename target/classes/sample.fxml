@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="480.0" maxWidth="485.0" minHeight="454.0" minWidth="445.0" prefHeight="454.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.put.poznan.bootstrapbuilder.gui.Controller">
+<Pane fx:id="paneid" maxHeight="480.0" maxWidth="485.0" minHeight="454.0" minWidth="445.0" prefHeight="454.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.put.poznan.bootstrapbuilder.gui.Controller">
    <children>
       <CheckBox fx:id="basic1" layoutX="16.0" layoutY="41.0" mnemonicParsing="false" onAction="#mark1" text="image" />
       <CheckBox fx:id="basic2" layoutX="16.0" layoutY="71.0" mnemonicParsing="false" onAction="#mark2" text="description" />
@@ -28,7 +28,7 @@
       <Label fx:id="label5" layoutX="313.0" layoutY="195.0" text="twitter" />
       <TextField fx:id="input9" layoutX="365.0" layoutY="214.0" prefHeight="25.0" prefWidth="92.0" visible="false" />
       <CheckBox fx:id="twitter1" layoutX="276.0" layoutY="217.0" mnemonicParsing="false" onAction="#mark9" text="title" />
-      <Button fx:id="button1" layoutX="202.0" layoutY="390.0" mnemonicParsing="false" onAction="#ok" text="ok" />
+      <Button fx:id="button1" layoutX="316.0" layoutY="407.0" mnemonicParsing="false" onAction="#ok" prefHeight="33.0" prefWidth="112.0" text="ok" />
       <CheckBox fx:id="og3" layoutX="19.0" layoutY="278.0" mnemonicParsing="false" onAction="#mark7" text="description" />
       <CheckBox fx:id="twitter2" layoutX="276.0" layoutY="248.0" mnemonicParsing="false" onAction="#mark10" text="description" />
       <TextField fx:id="input10" layoutX="365.0" layoutY="244.0" prefHeight="25.0" prefWidth="92.0" visible="false" />
@@ -41,5 +41,7 @@
       <TextField fx:id="input12" layoutX="366.0" layoutY="302.0" prefHeight="25.0" prefWidth="92.0" visible="false" />
       <TextField fx:id="input4" layoutX="116.0" layoutY="121.0" prefHeight="25.0" prefWidth="112.0" visible="false" />
       <TextField fx:id="input7" layoutX="104.0" layoutY="273.0" prefHeight="25.0" prefWidth="112.0" visible="false" />
+      <TextField fx:id="directoryid" layoutX="17.0" layoutY="353.0" prefHeight="26.0" prefWidth="291.0" />
+      <Button id="browse" fx:id="button11" layoutX="317.0" layoutY="353.0" mnemonicParsing="false" onAction="#fileBrowser" prefHeight="26.0" prefWidth="112.0" text="Browse" />
    </children>
 </Pane>

@@ -1,14 +1,20 @@
 package pl.put.poznan.bootstrapbuilder.gui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class Controller {
 
@@ -16,6 +22,13 @@ public class Controller {
     public TextField input1,input2, input3, input4, input5, input6, input7, input8, input9, input10, input11,input12;
     public CheckBox basic1, basic2, basic3,basic4, og1, og2, og3, og4, og5, twitter1, twitter2, header1, header2, footer_enabled, twitter3, twitter4;
     public Button button1;
+    File savefile;
+
+    @FXML
+    private TextField directoryid;
+
+    @FXML
+    private Pane paneid;
 
     public void mark1() {
         if (input1.isVisible() == true) {
@@ -320,18 +333,47 @@ public void putfooter(JSONObject object){
       }
 
 }
+
+public void putdirectory(JSONObject object){
+    JSONObject object1 = new JSONObject();
+
+    try{
+        object1.put("directory",savefile );
+        object.put("directory",object1);
+    }
+    catch(JSONException e){
+        e.printStackTrace();
+    }
+
+}
+
     public void ok() {
         JSONObject object = new JSONObject();
         putfooter(object);
         putheader(object);
         puttags(object);
+        savefile=new File(savefile,"StronaBB.html");
+        putdirectory(object);
 
         try {
-
             System.out.println(object.toString(4));
+
         }
         catch(JSONException e){
             e.printStackTrace();
         }
+    }
+
+    public void fileBrowser(ActionEvent actionEvent) {
+
+        final DirectoryChooser directorychooser = new DirectoryChooser();
+
+        Stage stage = (Stage) paneid.getScene().getWindow();
+
+        savefile = directorychooser.showDialog(stage);
+
+        //savefile=new File(savefile,"StronaBB.html");
+        directoryid.setText(savefile.getAbsolutePath());
+
     }
 }

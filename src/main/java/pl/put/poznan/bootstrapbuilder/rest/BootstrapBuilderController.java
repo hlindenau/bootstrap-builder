@@ -8,6 +8,7 @@ import pl.put.poznan.bootstrapbuilder.logic.BootstrapBuilder;
 import pl.put.poznan.bootstrapbuilder.logic.Director;
 import pl.put.poznan.bootstrapbuilder.logic.Header;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 
@@ -28,7 +29,7 @@ public class BootstrapBuilderController {
 //    }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@RequestBody Request request) {
+    public String post(@RequestBody Request request) throws FileNotFoundException {
 
         // log the parameters
         logger.debug(String.valueOf(request));
@@ -37,7 +38,8 @@ public class BootstrapBuilderController {
         logger.info("Footer: " + request.getFooter().toString());
         logger.info("Meta tags: " + request.getTag().toString());
 
-        return Director.create(request.getTag(), request.getHeader(), request.getFooter());
+
+        return Director.create(request.getTag(), request.getHeader(), request.getFooter(),request.getDirectory());
     }
 
 }

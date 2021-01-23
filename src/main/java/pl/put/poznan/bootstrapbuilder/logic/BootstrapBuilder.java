@@ -4,7 +4,11 @@ import org.apache.commons.lang3.text.StrSubstitutor;
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pl.put.poznan.bootstrapbuilder.gui.DirectorySaver;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +25,7 @@ public class BootstrapBuilder implements Builder{
     private Footer footer;
     private Tag tag;
     private String WebpageName;
+    private DirectorySaver directorysaver;
 
 
     @Override
@@ -44,6 +49,13 @@ public class BootstrapBuilder implements Builder{
         return this;
     }
 
+    @Override
+    public Builder setDirectorySaver(DirectorySaver dir){
+        this.directorysaver=dir;
+
+        return this;
+    }
+
     /**
      *  responsible for building final HTML code. Method sumplements given HTML scheme with Header,footer and meta tags
      *  based on user's choice
@@ -51,7 +63,7 @@ public class BootstrapBuilder implements Builder{
      */
 
     @Override
-    public String build() {
+    public String build() throws FileNotFoundException {
         String html = "";
         String meta = "";
         String metaOG = "";
@@ -96,8 +108,11 @@ public class BootstrapBuilder implements Builder{
         );
         System.out.println(codeHTML);
 
-        return html;
+        getDirectorySaver().save2file(codeHTML);
+        return codeHTML;
     }
+
+    public DirectorySaver getDirectorySaver(){return directorysaver;}
 
     public Header getHeader() {
         return header;
