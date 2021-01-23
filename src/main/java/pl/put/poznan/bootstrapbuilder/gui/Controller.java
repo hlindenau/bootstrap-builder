@@ -345,19 +345,6 @@ public void putfooter(JSONObject object){
 
 }
 
-public void putdirectory(JSONObject object){
-    JSONObject object1 = new JSONObject();
-
-    try{
-        object1.put("directory",savefile );
-        object.put("directory",object1);
-    }
-    catch(JSONException e){
-        e.printStackTrace();
-    }
-
-}
-
     public void ok() throws IOException {
         JSONObject object = new JSONObject();
         putfooter(object);
@@ -404,7 +391,7 @@ public void putdirectory(JSONObject object){
         Stage stage = (Stage) paneid.getScene().getWindow();
 
         savefile = directorychooser.showDialog(stage);
-        
+
         directoryid.setText(savefile.getAbsolutePath());
 
     }
