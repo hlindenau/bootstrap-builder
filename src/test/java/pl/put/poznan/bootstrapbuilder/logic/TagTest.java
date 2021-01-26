@@ -18,12 +18,41 @@ class TagTest {
         tag=new Tag();
         array=new HashMap<String,String>();
         array.put( "title", "tytultest");
-        array.put( "description", "opistest");
+    }
+
+    @Test
+    void buildMetaTitle() throws JSONException {
         tag.setMetaArray(array);
+        String wynik = tag.buildMeta();
+        String spodziewanyWynik= """
+                                <title>tytultest</title>\n""" ;
+        assertEquals(spodziewanyWynik,wynik);
+    }
+
+    @Test
+    void buildMetaTwitterTitle() throws JSONException {
+        tag.setTwitterArray(array);
+        String wynik = tag.buildMetaTwitter();
+        String spodziewanyWynik= """
+                                <meta name="twitter:title" content="tytultest">\n""" ;
+        assertEquals(spodziewanyWynik,wynik);
+
+
+    }
+
+    @Test
+    void buildMetaOGTitle() throws JSONException {
+        tag.setOgArray(array);
+        String wynik = tag.buildMetaOG();
+        String spodziewanyWynik= """
+                <meta property="og:title" content="tytultest">\n""" ;
+        assertEquals(spodziewanyWynik,wynik);
     }
 
     @Test
     void buildMeta() throws JSONException {
+        array.put( "description", "opistest");
+        tag.setMetaArray(array);
         String wynik = tag.buildMeta();
         String spodziewanyWynik= """
                                 <meta name="description" content="opistest">
@@ -32,10 +61,59 @@ class TagTest {
     }
 
     @Test
-    void buildMetaTwitter() {
+    void buildMetaTwitter() throws JSONException {
+        array.put( "description", "opistest");
+        tag.setTwitterArray(array);
+        String wynik = tag.buildMetaTwitter();
+        String spodziewanyWynik= """
+                                <meta name="twitter:description" content="opistest">
+                                <meta name="twitter:title" content="tytultest">\n""" ;
+        assertEquals(spodziewanyWynik,wynik);
+
+
     }
 
     @Test
-    void buildMetaOG() {
+    void buildMetaOG() throws JSONException {
+        array.put( "description", "opistest");
+        tag.setOgArray(array);
+        String wynik = tag.buildMetaOG();
+        String spodziewanyWynik= """
+                <meta property="og:description" content="opistest">
+                <meta property="og:title" content="tytultest">\n""" ;
+        assertEquals(spodziewanyWynik,wynik);
     }
+
+
+
+
+    @Test
+    void buildMetaEmpty() throws JSONException {
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMeta();
+        });
+
+
+    }
+
+    @Test
+    void buildMetaTwitterEmpty() throws JSONException {
+
+
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMetaTwitter();
+        });
+
+
+    }
+
+    @Test
+    void buildMetaOGEmpty() throws JSONException {
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMetaOG();
+        });
+
+
+    }
+
 }
