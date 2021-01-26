@@ -26,6 +26,9 @@ import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 
+/**
+ * class responsible for handling elements of gui
+ */
 
 public class Controller {
 
@@ -41,6 +44,10 @@ public class Controller {
     @FXML
     private Pane paneid;
 
+    /**
+     * mark functions make input boxes appear/disappear when checkbox is clicked by user; every mark is responsible for
+     * one input box
+     */
     public void mark1() {
         if (input1.isVisible() == true) {
             input1.setVisible(false);
@@ -151,6 +158,12 @@ public class Controller {
             header2.setSelected(false);
         }
     }
+
+    /**
+     * reads inputs of input boxes and adds them to json
+     * @param object - main json
+     */
+
     public void puttags(JSONObject object){
         JSONObject arrayElement = new JSONObject();
         JSONObject array2Element = new JSONObject();
@@ -290,7 +303,10 @@ public class Controller {
 
     }
 
-
+    /**
+     * responsible for putting info about parameters of header into json
+     * @param object - main json
+     */
 
     public void putheader(JSONObject object) {
         JSONObject arrayElement = new JSONObject();
@@ -328,6 +344,12 @@ public class Controller {
         }
 
     }
+
+    /**
+     * responsible for adding info about footer into json
+     * @param object - main json
+     */
+
 public void putfooter(JSONObject object){
 
       JSONObject object1 = new JSONObject();
@@ -344,7 +366,11 @@ public void putfooter(JSONObject object){
 
 
 }
-
+,
+    /**
+     * onclick method; creates json and calls all "put" functions to add informations to json;
+     * makes json post request with HttpUrlConnection
+     */
     public void ok() throws IOException {
         JSONObject object = new JSONObject();
         putfooter(object);
@@ -382,7 +408,10 @@ public void putfooter(JSONObject object){
 
     }
 
-
+    /**
+     * lets the user choose the destination of output .html file and it's name
+     * @param actionEvent - actionEvent occurs when user clicks "browse" button
+     */
 
     public void fileBrowser(ActionEvent actionEvent) {
 
