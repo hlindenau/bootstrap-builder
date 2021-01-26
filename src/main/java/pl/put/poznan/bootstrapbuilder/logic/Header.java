@@ -11,6 +11,7 @@ import java.util.Map;
 public class Header {
     private boolean addHeader=false;
     private boolean fixed=false;
+//    private boolean nav;
 
     /**
      * responsible for building HTML code of Header
@@ -36,6 +37,10 @@ public class Header {
             return "";
     }
 
+//    public static void main(String[] args) {
+//        buildHeader();
+//    }
+
     public boolean isFixed() {
         return this.fixed;
     }
@@ -55,6 +60,16 @@ public class Header {
         else{ style+="style=\"position:static\""; }
         return style;
     }
+
+
+//    public boolean isNav() {
+//        return nav;
+//    }
+//
+//    public void setNav(boolean nav) {
+//        this.nav = nav;
+//    }
+
 
     public boolean isAddHeader() {
         return addHeader;

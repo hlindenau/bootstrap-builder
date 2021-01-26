@@ -5,6 +5,10 @@ import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//import org.mockito.*;
+//import static org.mockito.Mockito.*;
+
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,7 +99,7 @@ public class BootstrapBuilder implements Builder{
             </html>
             """
         );
-        System.out.println(codeHTML);
+        //System.out.println(codeHTML);
 
         return codeHTML;
     }
