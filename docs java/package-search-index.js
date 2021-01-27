@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"pl.put.poznan.bootstrapbuilder.app"},{"l":"pl.put.poznan.bootstrapbuilder.gui"},{"l":"pl.put.poznan.bootstrapbuilder.logic"},{"l":"pl.put.poznan.bootstrapbuilder.rest"}];updateSearchResults();
