@@ -98,8 +98,6 @@ class TagTest {
 
     @Test
     void buildMetaTwitterEmpty() throws JSONException {
-
-
         assertThrows(NullPointerException.class, ()-> {
             tag.buildMetaTwitter();
         });
@@ -115,5 +113,46 @@ class TagTest {
 
 
     }
+
+
+    @Test
+    void buildMetaWrongData() throws JSONException {
+        array.put( "description","");
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMeta();
+        });
+
+
+    }
+
+    @Test
+    void buildMetaTwitterWrongData() throws JSONException {
+        array.put( "description","");
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMetaTwitter();
+        });
+
+
+    }
+
+
+    @Test
+    void buildMetaOgWrongData() throws JSONException {
+        array.put( "description","");
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMetaOG();
+        });
+    }
+
+
+    @Test
+    void buildMetaOgWrongTitle() throws JSONException {
+        array=new HashMap<String,String>();
+        array.put("","title");
+        assertThrows(NullPointerException.class, ()-> {
+            tag.buildMetaOG();
+        });
+    }
+
 
 }
